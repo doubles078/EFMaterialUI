@@ -12,6 +12,9 @@ import NativeSelect from '@material-ui/core/NativeSelect'
 import FormControl from '@material-ui/core/FormControl'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import Button from '@material-ui/core/Button'
+import InputLabel from '@material-ui/core/InputLabel'
+import Select from '@material-ui/core/Select'
+import FilledInput from '@material-ui/core/FilledInput'
 
 const styles = theme => ({
   container: {
@@ -92,6 +95,7 @@ class OutlinedTextFields extends React.Component {
               />
               <FormControl className={classes.formControl} error>
                 <TextField
+                  dan="hey"
                   error
                   id="outlined-error"
                   label="Error State"
@@ -195,21 +199,21 @@ class OutlinedTextFields extends React.Component {
               </RadioGroup>
             </Grid>
             <Grid item xs={12}>
-              <FormControl className={classes.formControl}>
-                <NativeSelect
-                  className={classes.selectEmpty}
+              <FormControl variant="filled" className={classes.formControl}>
+                <InputLabel htmlFor="filled-age-native-simple">Age</InputLabel>
+                <Select
+                  native
                   value={this.state.age}
-                  name="age"
                   onChange={this.handleChange('age')}
+                  input={
+                    <FilledInput name="age" id="filled-age-native-simple" />
+                  }
                 >
-                  <option value="" disabled>
-                    Placeholder
-                  </option>
+                  <option value="" />
                   <option value={10}>Ten</option>
                   <option value={20}>Twenty</option>
                   <option value={30}>Thirty</option>
-                </NativeSelect>
-                <FormHelperText>Placeholder</FormHelperText>
+                </Select>
               </FormControl>
             </Grid>
             <Grid item xs={6}>

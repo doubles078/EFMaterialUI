@@ -12,6 +12,7 @@ import eftheme from '../assets/themes/eftheme.js'
 
 const Layout = ({ children }) => (
   <MuiThemeProvider theme={eftheme}>
+    {console.log(eftheme)}
     <StaticQuery
       query={graphql`
         query SiteTitleQuery {
