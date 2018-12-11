@@ -67,8 +67,8 @@ class OutlinedTextFields extends React.Component {
   }
 
   render() {
-    const { classes } = this.props
-
+    const { classes, theme } = this.props
+    console.log(theme)
     return (
       <Paper className={classes.paper}>
         <form className={classes.container} noValidate autoComplete="off">
