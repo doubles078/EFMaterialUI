@@ -51,6 +51,13 @@ const styles = theme => ({
     marginTop: theme.spacing.unit,
     marginBottom: theme.spacing.unit,
   },
+
+  root: {
+    '&$disabled': {
+      color: 'pink',
+    },
+  },
+  disabled: {},
 })
 
 class OutlinedTextFields extends React.Component {
@@ -103,12 +110,7 @@ class OutlinedTextFields extends React.Component {
                 error
                 variant="outlined"
               >
-                <InputLabel
-                  htmlFor="outlined-error"
-                  className={classes.hackedLabel}
-                >
-                  Error State
-                </InputLabel>
+                <JoesLabel htmlFor="outlined-error">Error State</JoesLabel>
 
                 <OutlinedInput
                   error

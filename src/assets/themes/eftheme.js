@@ -40,7 +40,17 @@ const eftheme = createMuiTheme({
     borderRadius: 0,
   },
   overrides: {
-    MuiInputLabel: {},
+    MuiInputLabel: {
+      root: {
+        '&outlined': {
+          '&$shrink': {
+            color: 'blue',
+            transform: 'translate(14px, 5px) scale(0.75)',
+          },
+        },
+      },
+      shrink: {},
+    },
     MuiButton: {
       root: {
         boxShadow: 'none',
