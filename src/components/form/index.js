@@ -8,13 +8,15 @@ import Grid from '@material-ui/core/Grid'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import Paper from '@material-ui/core/Paper'
-import NativeSelect from '@material-ui/core/NativeSelect'
 import FormControl from '@material-ui/core/FormControl'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import Button from '@material-ui/core/Button'
 import InputLabel from '@material-ui/core/InputLabel'
 import Select from '@material-ui/core/Select'
 import FilledInput from '@material-ui/core/FilledInput'
+import OutlinedInput from '@material-ui/core/OutlinedInput'
+import JoesButton from './JoesButton'
+import JoesLabel from './JoesLabel'
 
 const styles = theme => ({
   container: {
@@ -33,9 +35,6 @@ const styles = theme => ({
   },
   radio: {
     color: 'blue',
-    '&&:checked': {
-      color: 'blue',
-    },
   },
   textField: {
     width: '100%',
@@ -49,6 +48,8 @@ const styles = theme => ({
   },
   formControl: {
     width: '100%',
+    marginTop: theme.spacing.unit,
+    marginBottom: theme.spacing.unit,
   },
 })
 
@@ -75,7 +76,7 @@ class OutlinedTextFields extends React.Component {
     return (
       <Paper className={classes.paper}>
         <form className={classes.container} noValidate autoComplete="off">
-          <Grid container className={classes.root} spacing={16}>
+          <Grid container spacing={16}>
             <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox defaultChecked />}
@@ -86,23 +87,37 @@ class OutlinedTextFields extends React.Component {
                 label="Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit commodi quis perferendis, dicta delectus quod obcaecati tempora maxime fugit incidunt. Repellendus, fuga magni cumque nihil cum ullam quas rem labore?"
               />
 
-              <TextField
-                id="outlined-name"
-                label="Default Text"
-                className={classes.textField}
-                margin="normal"
-                variant="outlined"
-              />
-              <FormControl className={classes.formControl} error>
-                <TextField
-                  dan="hey"
-                  error
-                  id="outlined-error"
-                  label="Error State"
+              <FormControl className={classes.formControl} variant="outlined">
+                <JoesLabel htmlFor="default-text">Joes Text</JoesLabel>
+
+                <OutlinedInput
+                  id="default-text"
                   className={classes.textField}
                   margin="normal"
                   variant="outlined"
                 />
+              </FormControl>
+
+              <FormControl
+                className={classes.formControl}
+                error
+                variant="outlined"
+              >
+                <InputLabel
+                  htmlFor="outlined-error"
+                  className={classes.hackedLabel}
+                >
+                  Error State
+                </InputLabel>
+
+                <OutlinedInput
+                  error
+                  id="outlined-error"
+                  className={classes.textField}
+                  margin="normal"
+                  variant="outlined"
+                />
+
                 <FormHelperText>Oh no!</FormHelperText>
               </FormControl>
               <TextField
@@ -217,13 +232,9 @@ class OutlinedTextFields extends React.Component {
               </FormControl>
             </Grid>
             <Grid item xs={6}>
-              <Button
-                variant="outlined"
-                color="primary"
-                className={classes.button}
-              >
+              <JoesButton className={classes.button} variant="outlined">
                 Go Back
-              </Button>
+              </JoesButton>
             </Grid>
             <Grid item xs={6}>
               <Button
@@ -237,17 +248,13 @@ class OutlinedTextFields extends React.Component {
               </Button>
             </Grid>
             <Grid item xs={6}>
-              <Button
-                variant="contained"
-                color="primary"
-                className={classes.button}
-              >
+              <JoesButton className={classes.button} variant="contained">
                 Submit
-              </Button>
+              </JoesButton>
             </Grid>
             <Grid item xs={6}>
-              <Button color="secondary" className={classes.button}>
-                Text Button
+              <Button color="primary" className={classes.button}>
+                Other Random Button
               </Button>
             </Grid>
           </Grid>

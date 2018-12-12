@@ -1,5 +1,4 @@
 import { createMuiTheme } from '@material-ui/core/styles'
-import red from '@material-ui/core/colors/red'
 
 const eftheme = createMuiTheme({
   palette: {
@@ -41,6 +40,7 @@ const eftheme = createMuiTheme({
     borderRadius: 0,
   },
   overrides: {
+    MuiInputLabel: {},
     MuiButton: {
       root: {
         boxShadow: 'none',
