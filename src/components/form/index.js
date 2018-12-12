@@ -15,6 +15,7 @@ import InputLabel from '@material-ui/core/InputLabel'
 import Select from '@material-ui/core/Select'
 import FilledInput from '@material-ui/core/FilledInput'
 import OutlinedInput from '@material-ui/core/OutlinedInput'
+import Chip from '@material-ui/core/Chip'
 import JoesButton from './JoesButton'
 import JoesLabel from './JoesLabel'
 
@@ -51,13 +52,9 @@ const styles = theme => ({
     marginTop: theme.spacing.unit,
     marginBottom: theme.spacing.unit,
   },
-
-  root: {
-    '&$disabled': {
-      color: 'pink',
-    },
+  chipper: {
+    marginTop: theme.spacing.unit * 2,
   },
-  disabled: {},
 })
 
 class OutlinedTextFields extends React.Component {
@@ -93,6 +90,11 @@ class OutlinedTextFields extends React.Component {
                 control={<Checkbox />}
                 label="Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit commodi quis perferendis, dicta delectus quod obcaecati tempora maxime fugit incidunt. Repellendus, fuga magni cumque nihil cum ullam quas rem labore?"
               />
+              <Chip
+                color="secondary"
+                label="Custom Label(s)"
+                classes={{ root: classes.chipper }}
+              />
 
               <FormControl className={classes.formControl} variant="outlined">
                 <JoesLabel htmlFor="default-text">Joes Text</JoesLabel>
@@ -104,7 +106,6 @@ class OutlinedTextFields extends React.Component {
                   variant="outlined"
                 />
               </FormControl>
-
               <FormControl
                 className={classes.formControl}
                 error
@@ -232,6 +233,13 @@ class OutlinedTextFields extends React.Component {
                   <option value={30}>Thirty</option>
                 </Select>
               </FormControl>
+            </Grid>
+            <Grid item xs={12}>
+              <Chip
+                color="secondary"
+                label="Custom Back and Submit Button"
+                className={classes.chipper}
+              />
             </Grid>
             <Grid item xs={6}>
               <JoesButton className={classes.button} variant="outlined">
