@@ -7,7 +7,7 @@ import InputLabel from '@material-ui/core/InputLabel'
 const styles = {
   root: {
     '&$shrink': {
-      transform: 'translate(14px, 5px) scale(0.75)',
+      transform: 'translate(14px, 12px) scale(0.75)',
     },
   },
   shrink: {},

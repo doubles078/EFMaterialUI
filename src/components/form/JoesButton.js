@@ -7,6 +7,7 @@ const styles = theme => ({
   root: {
     background: theme.palette.text.primary,
     color: 'white',
+    fontWeight: 'bold',
     boxShadow: '0',
     '&:hover': {
       background: theme.palette.primary.main,
@@ -15,6 +16,7 @@ const styles = theme => ({
   outlined: {
     border: `1px solid ${theme.palette.text.primary}`,
     color: theme.palette.text.primary,
+    fontWeight: 'bold',
     boxShadow: '0',
     '&:hover': {
       border: `1px solid ${theme.palette.primary.main}`,

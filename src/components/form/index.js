@@ -18,6 +18,8 @@ import OutlinedInput from '@material-ui/core/OutlinedInput'
 import Chip from '@material-ui/core/Chip'
 import JoesButton from './JoesButton'
 import JoesLabel from './JoesLabel'
+import classnames from 'classnames'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 const styles = theme => ({
   container: {
@@ -35,7 +37,8 @@ const styles = theme => ({
     minWidth: '16.25rem',
   },
   radio: {
-    color: 'blue',
+    backgroundColor: '#f5f5f2',
+    margin: `${theme.spacing.unit}px 0`,
   },
   textField: {
     width: '100%',
@@ -54,6 +57,18 @@ const styles = theme => ({
   },
   chipper: {
     marginTop: theme.spacing.unit * 2,
+  },
+  funInput: { padding: '28.5px 14px 11.5px 14px' },
+  progress: {
+    height: '26px',
+    width: '26px',
+    color: '#fff',
+  },
+  checkboxLabel: {
+    alignItems: 'flex-start',
+  },
+  checkbox: {
+    padding: '0px 12px 12px 12px',
   },
 })
 
@@ -76,7 +91,7 @@ class OutlinedTextFields extends React.Component {
 
   render() {
     const { classes, theme } = this.props
-    console.log(theme)
+
     return (
       <Paper className={classes.paper}>
         <form className={classes.container} noValidate autoComplete="off">
@@ -87,7 +102,8 @@ class OutlinedTextFields extends React.Component {
                 label="Text"
               />
               <FormControlLabel
-                control={<Checkbox />}
+                className={classes.checkboxLabel}
+                control={<Checkbox className={classes.checkbox} />}
                 label="Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit commodi quis perferendis, dicta delectus quod obcaecati tempora maxime fugit incidunt. Repellendus, fuga magni cumque nihil cum ullam quas rem labore?"
               />
               <Chip
@@ -101,7 +117,7 @@ class OutlinedTextFields extends React.Component {
 
                 <OutlinedInput
                   id="default-text"
-                  className={classes.textField}
+                  classes={{ input: classes.funInput }}
                   margin="normal"
                   variant="outlined"
                 />
@@ -116,7 +132,7 @@ class OutlinedTextFields extends React.Component {
                 <OutlinedInput
                   error
                   id="outlined-error"
-                  className={classes.textField}
+                  classes={{ input: classes.funInput }}
                   margin="normal"
                   variant="outlined"
                 />
@@ -142,18 +158,21 @@ class OutlinedTextFields extends React.Component {
               >
                 <FormControlLabel
                   value="option1"
+                  className={classes.radio}
                   control={<Radio color="primary" />}
                   label="This is option 1"
                   labelPlacement="end"
                 />
                 <FormControlLabel
                   value="option2"
+                  className={classes.radio}
                   control={<Radio color="primary" />}
                   label="This is option 2"
                   labelPlacement="end"
                 />
                 <FormControlLabel
                   value="option3"
+                  className={classes.radio}
                   control={<Radio color="primary" />}
                   label="This is option 3"
                   labelPlacement="end"
@@ -172,16 +191,19 @@ class OutlinedTextFields extends React.Component {
                   value="option1"
                   control={<Radio color="primary" />}
                   label="This is option 1"
+                  className={classes.radio}
                   labelPlacement="end"
                 />
                 <FormControlLabel
                   value="option2"
-                  control={<Radio className={classes.radio} />}
+                  className={classes.radio}
+                  control={<Radio color="primary" />}
                   label="This is option 2"
                   labelPlacement="end"
                 />
                 <FormControlLabel
                   value="option3"
+                  className={classes.radio}
                   control={<Radio color="primary" />}
                   label="This is option 3"
                   labelPlacement="end"
@@ -198,18 +220,21 @@ class OutlinedTextFields extends React.Component {
               >
                 <FormControlLabel
                   value="option1"
+                  className={classes.radio}
                   control={<Radio color="primary" />}
                   label="This is option 1"
                   labelPlacement="end"
                 />
                 <FormControlLabel
                   value="option2"
+                  className={classes.radio}
                   control={<Radio color="primary" />}
                   label="This is option 2"
                   labelPlacement="end"
                 />
                 <FormControlLabel
                   value="option3"
+                  className={classes.radio}
                   control={<Radio color="primary" />}
                   label="This is option 3"
                   labelPlacement="end"
@@ -263,9 +288,12 @@ class OutlinedTextFields extends React.Component {
               </JoesButton>
             </Grid>
             <Grid item xs={6}>
-              <Button color="primary" className={classes.button}>
-                Other Random Button
-              </Button>
+              <JoesButton className={classes.button} variant="contained">
+                <CircularProgress
+                  classes={{ root: classes.progress }}
+                  size={26}
+                />
+              </JoesButton>
             </Grid>
           </Grid>
         </form>
